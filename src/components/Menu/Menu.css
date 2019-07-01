@@ -1,0 +1,30 @@
+.main-nav {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding-top: 35px;
+  padding-right: 35px;
+}
+
+.nav-item {
+  display: inline-block;
+  cursor: pointer;
+  color: #fff;
+  font-size: 35px;
+  padding-right: 17px;
+  margin-right: 17px;
+  text-transform: lowercase;
+  border-right: 1px solid #fff;
+  text-align: center;
+  text-decoration: none;
+}
+
+.nav-item.active, .nav-item:hover {
+  text-shadow: #FFF 1px 0 10px;
+}
+
+.nav-item:last-of-type {
+  padding-right: 0;
+  margin-right: 0;
+  border-right: none;
+}

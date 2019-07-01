@@ -1,0 +1,12 @@
+.welcome {
+  position: absolute;
+  top: 15%;
+}
+
+.welcome h1 {
+  color: #FFF;
+  font-weight: 300;
+  font-size: 140px;
+  text-transform: lowercase;
+  padding-left: 70px;
+}
