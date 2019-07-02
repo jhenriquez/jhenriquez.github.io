@@ -1,59 +1,13 @@
 .welcome {
   position: absolute;
   top: 15%;
+  padding-left: 70px;
 }
 
 .welcome h1 {
   color: #FFF;
   font-weight: 300;
   font-size: 140px;
-  text-transform: lowercase;
-  padding-left: 70px;
+  text-transform: capitalize;
   margin-bottom: 17px;
-}
-
-.welcome .social-icons {
-  text-align: center;
-  padding-left: 70px;
-}
-
-.welcome img {
-  cursor: pointer;
-  color: #fff;
-  height: 70px;
-  width: 70px;
-  margin-right: 17px;
-}
-
-.typewriter {
-  display: inline-block;
-}
-
-.typewriter span {
-  display: inline-block;
-  color: #fff;
-  padding-left: 70px;
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  white-space: nowrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: .15em; /* Adjust as needed */
-  animation: typing 5s steps(40, end);
-}
-
-.typewriter .console-cursor {
-  display: inline;
-  padding: 0;
-  animation: blink-caret .75s linear infinite;
-}
-
-/* The typing effect */
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-  from { color: transparent; }
-  to { color: #fff; }
 }

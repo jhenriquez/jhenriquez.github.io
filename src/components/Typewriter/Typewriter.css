@@ -1,0 +1,41 @@
+.typewriter {
+  display: flex;
+  background-color: #000;
+  flex: 1;
+  align-items: baseline;
+  padding-left: 5px;
+  white-space: nowrap;
+}
+
+.typewriter span {
+  text-transform: lowercase;
+  font-size: 24px;
+  color: #fff;
+  letter-spacing: 1px;
+  overflow: hidden;
+}
+
+.typewriter .prompt {
+  margin-right: 10px;
+}
+
+.typewriter .content {
+  display: inline-block;
+  animation: typing 5s steps(40);
+}
+
+.content::after {
+  content: '|';
+  vertical-align: top;
+  animation: blink-caret 1s linear infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from { color: transparent; }
+  to { color: #fff; }
+}
