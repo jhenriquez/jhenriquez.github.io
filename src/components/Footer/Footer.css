@@ -1,0 +1,21 @@
+.footer {
+  position: absolute;
+  bottom: 35px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.footer .icon {
+  fill: #fff;
+}
+
+.footer a {
+  height: 70px;
+  width: 70px;
+  margin-right: 35px;
+}
+
+.footer a:last-of-type {
+  margin-right: 0;
+}
