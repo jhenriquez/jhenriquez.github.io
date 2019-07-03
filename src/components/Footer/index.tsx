@@ -1,17 +1,16 @@
 import './Footer.css';
 import React from 'react';
 import {Github, LinkedIn} from '../Icons';
-import {Link} from 'react-router-dom';
 
 const Footer: React.FC = () => {
   return (
     <div className="footer">
-      <Link to="#">
+      <a href="https://github.com/jhenriquez" target="_blank">
         <Github />
-      </Link>
-      <Link to="#">
+      </a>
+      <a href="https://www.linkedin.com/in/juliohenriquez/" target="_blank">
         <LinkedIn />
-      </Link>
+      </a>
     </div>
   );
 }
