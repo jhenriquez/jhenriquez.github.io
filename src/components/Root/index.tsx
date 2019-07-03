@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Menu from '../Menu';
 import Welcome from '../../views/Welcome';
@@ -21,6 +21,9 @@ const Root: React.FC = () => {
               <Route exact path="/" component={Welcome} />
               <Route exact path="/welcome" component={Welcome} />
               <Route exact path="/about" component={About} />
+              <Route exact path="/experience" render={() => null} />
+              <Route exact path="/activities" render={() => null} />
+              <Redirect to="/" />
             </Switch>  
           </CSSTransition>
         </TransitionGroup>
