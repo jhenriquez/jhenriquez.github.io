@@ -21,7 +21,7 @@ const Welcome: React.FC = () => {
         return setCurrentCommand(0);
       }
       setCurrentCommand(newCommand);
-    }, 7000);
+    }, 3000);
 
     return () => clearTimeout(id);
   });
