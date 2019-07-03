@@ -1,6 +1,6 @@
 import './Welcome.css';
 import React, { useState, useEffect } from 'react';
-import Typewriter from '../Typewriter';
+import Typewriter from '../../components/Typewriter';
 
 const Welcome: React.FC = () => {
   const commands = [

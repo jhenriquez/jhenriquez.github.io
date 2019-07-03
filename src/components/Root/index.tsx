@@ -1,17 +1,19 @@
 import React from 'react';
-import { BrowserRouter as Router, Route} from "react-router-dom";
+import { BrowserRouter, Route, Switch} from "react-router-dom";
 import Menu from '../Menu';
-import Welcome from '../Welcome';
+import Welcome from '../../views/Welcome';
 import Footer from '../Footer';
 
 const Root: React.FC = () => {
   return (
-    <Router>
+    <BrowserRouter>
       <Route path="/:activeItem?" component={Menu} />
-      <Route exact path="/" component={Welcome} />
-      <Route exact path="/welcome" component={Welcome} />
+      <Switch>
+        <Route exact path="/" component={Welcome} />
+        <Route exact path="/welcome" component={Welcome} />
+      </Switch>
       <Footer />
-    </Router>
+    </BrowserRouter>
   );
 }
 
