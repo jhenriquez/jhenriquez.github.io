@@ -48,3 +48,18 @@ body {
 		background-position: 0% 50%
 	}
 }
+
+/**
+ * General view transitions for appearing and entering.
+ * Individually views might customize even more these behaviors
+ * using these same classes.
+ */
+
+.view-enter, .view-appear {
+  opacity: 0;
+}
+
+.view-enter-active, .view-appear-active {
+  opacity: 1;
+  transition: opacity 500ms;
+}

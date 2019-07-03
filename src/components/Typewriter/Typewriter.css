@@ -20,7 +20,12 @@
 }
 
 .typewriter .content {
+  width: 0;
+}
+
+.view-enter-done .typewriter .content {
   display: inline-block;
+  width: auto;
   animation: typing 5s steps(40);
 }
 
