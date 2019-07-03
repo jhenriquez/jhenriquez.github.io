@@ -1,4 +1,4 @@
-import './Welcome.css';
+import './Home.css';
 import React, { useState, useEffect } from 'react';
 import Typewriter from '../../components/Typewriter';
 
@@ -27,7 +27,7 @@ const Welcome: React.FC = () => {
   });
 
   return (
-    <section className="welcome">
+    <section className="home">
       <h1>Developer.</h1>
       <Typewriter text={commands[currentCommand]} />
     </section>

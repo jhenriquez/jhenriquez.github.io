@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Menu from '../Menu';
-import Welcome from '../../views/Welcome';
+import Home from '../../views/Home';
 import About from '../../views/About';
 import Footer from '../Footer';
 
@@ -18,8 +18,8 @@ const Root: React.FC = () => {
             classNames="view"
             >
             <Switch location={location}>
-              <Route exact path="/" component={Welcome} />
-              <Route exact path="/welcome" component={Welcome} />
+              <Route exact path="/" component={Home} />
+              <Route exact path="/home" component={Home} />
               <Route exact path="/about" component={About} />
               <Route exact path="/experience" render={() => null} />
               <Route exact path="/activities" render={() => null} />
