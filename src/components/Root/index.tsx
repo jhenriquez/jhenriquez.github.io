@@ -14,15 +14,15 @@ const Root: React.FC = () => {
         <TransitionGroup enter={true} exit={false} appear={true}>
           <CSSTransition
             key={location.key}
-            timeout={500}
+            timeout={2000}
             classNames="view"
             >
             <Switch location={location}>
               <Route exact path="/" component={Home} />
               <Route exact path="/home" component={Home} />
               <Route exact path="/about" component={About} />
-              <Route exact path="/experience" render={() => null} />
-              <Route exact path="/activities" render={() => null} />
+              <Route exact path="/skills" render={() => null} />
+              <Route exact path="/activity" render={() => null} />
               <Redirect to="/" />
             </Switch>  
           </CSSTransition>

@@ -62,5 +62,5 @@ body, #body {
 
 .view-enter-active, .view-appear-active {
   opacity: 1;
-  transition: opacity 500ms;
+  transition: opacity 2s;
 }

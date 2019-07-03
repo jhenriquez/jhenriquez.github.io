@@ -19,14 +19,14 @@ const getClasses = (item: string, activeItem: string) => {
 
 const Menu: React.FC<MenuPropTypes> = ({icon, ...props}: MenuPropTypes) => {
   const activeItem = props.match.params.activeItem || 'home';
+  const routes = ['home', 'about', 'skills', 'activity'];
 
   return (
     <nav>
       <div className="text-nav">
-        <Link to="/home" className={getClasses('home', activeItem)}>home</Link>
-        <Link to="/about" className={getClasses('about', activeItem)}>about</Link>
-        <Link to="/experience" className={getClasses('experience', activeItem)}>experience</Link>
-        <Link to="/activities" className={getClasses('activities', activeItem)}>activities</Link>
+        {
+          routes.map((route) => <Link to={`/${route}`} className={getClasses(route, activeItem)}>{route}</Link>)
+        }
       </div>
       {icon}
     </nav>
