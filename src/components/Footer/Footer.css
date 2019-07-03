@@ -19,3 +19,11 @@
 .footer a:last-of-type {
   margin-right: 0;
 }
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .footer a {
+    height: 35px;
+    width: 35px;
+    margin-right: 17px;
+  }
+}

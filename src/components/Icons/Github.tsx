@@ -1,7 +1,6 @@
 import React from 'react';
-import {propTypes, defaultProps, IconPropTypes} from './Icon';
 
-const Github: React.FC<IconPropTypes> = (props: IconPropTypes) => {
+const Github: React.FC = () => {
  return (
   <svg className="icon github" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <title>GitHub icon</title>
@@ -9,8 +8,5 @@ const Github: React.FC<IconPropTypes> = (props: IconPropTypes) => {
   </svg>
  ); 
 }
-
-Github.propTypes = propTypes;
-Github.defaultProps = defaultProps;
 
 export default Github;

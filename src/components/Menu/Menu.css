@@ -1,9 +1,14 @@
-.main-nav {
+nav {
+  fill: #fff;
   position: absolute;
   right: 0;
   top: 0;
   padding-top: 35px;
   padding-right: 70px;
+}
+
+nav .icon {
+  display: none;
 }
 
 .nav-item {
@@ -27,4 +32,31 @@
   padding-right: 0;
   margin-right: 0;
   border-right: none;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .text-nav {
+    display: none;
+  }
+
+  nav .icon {
+    display: inline;
+  }
+
+  nav {
+    height: 35px;
+    width: 35px;
+    padding-right: 0;
+    right: 15px;
+    top: -15px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  nav {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-right: 0;
+  }
 }
