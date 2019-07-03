@@ -21,14 +21,15 @@ const Welcome: React.FC = () => {
         return setCurrentCommand(0);
       }
       setCurrentCommand(newCommand);
-    }, 3000);
+    }, 5000);
 
     return () => clearTimeout(id);
   });
 
   return (
     <section className="home">
-      <h1>Developer.</h1>
+      <h1>Hello,</h1>
+      <h1>I'm Julio.</h1>
       <Typewriter text={commands[currentCommand]} />
     </section>
   );
