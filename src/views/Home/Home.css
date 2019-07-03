@@ -13,13 +13,62 @@
   margin: 0;
 }
 
+.home h1.iam {
+  position: relative;
+  top: -30px;
+}
+
+.home h2 {
+  color: #2F2E29;
+  max-width: 525px;
+  font-weight: bold;
+  font-size: 42px;
+  text-transform: uppercase;
+  margin: 0;
+  transform: translate(0, -15px);
+}
+
+.view-enter, .view-appear h1.hello {
+  transform: translate(0, -45px);
+}
+
+.view-enter-active, .view-appear-active h1.hello {
+  transform: translate(0, 0);
+  transition: transform 2s;
+}
+
+.view-enter, .view-appear h1.iam {
+  transform: translate(-45px, 0);
+}
+
+.view-enter-active, .view-appear-active h1.iam {
+  transform: translate(0, 0);
+  transition: transform 2s;
+}
+
+.view-enter, .view-appear .typewriter {
+  transform: translate(0, 45px);
+}
+
+.view-enter-active, .view-appear-active .typewriter {
+  transform: translate(0, 0);
+  transition: transform 2s;
+}
+
 @media (min-width: 320px) and (max-width: 823px) {
   .home h1 {
-    color: #FFF;
-    font-weight: 300;
     font-size: 60px;
-    text-transform: capitalize;
     max-width: 85%;
+  }
+
+  .home h1.iam {
+    position: relative;
+    top: -10px;
+  }
+
+  .home h2 { 
+    font-size: 25px;
+    transform: translate(0, -5px);
   }
 }
 

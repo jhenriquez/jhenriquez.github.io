@@ -28,8 +28,9 @@ const Welcome: React.FC = () => {
 
   return (
     <section className="home">
-      <h1>Hello,</h1>
-      <h1>I'm Julio.</h1>
+      <h1 className="hello">Hello,</h1>
+      <h1 className="iam">I'm Julio.</h1>
+      <h2>Software Developer.</h2>
       <Typewriter text={commands[currentCommand]} />
     </section>
   );
