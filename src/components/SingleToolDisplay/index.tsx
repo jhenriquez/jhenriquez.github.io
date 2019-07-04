@@ -4,21 +4,18 @@ import PropTypes from 'prop-types';
 import {TransitionGroup, CSSTransition} from 'react-transition-group';
 
 export interface SingleToolDisplayPropTypes {
-  icon?: ReactElement;
+  icon: ReactElement;
+  iconKey?: string;
 }
 
 const SingleToolDisplay: React.FC<SingleToolDisplayPropTypes> = (props) => {
-  const {icon} = props;
+  const {icon, iconKey} = props;
 
-  if (!icon) {
-    return <div />;
-  }
-  
   return (
     <div className="single-tool-display">
       <TransitionGroup>
         <CSSTransition
-          key={Math.floor(Math.random()*100000000)}
+          key={iconKey}
           timeout={2000}>
           <i className="tool">{icon}</i>
         </CSSTransition>
@@ -29,7 +26,8 @@ const SingleToolDisplay: React.FC<SingleToolDisplayPropTypes> = (props) => {
 }
 
 SingleToolDisplay.propTypes = {
-  icon: PropTypes.element,
+  icon: PropTypes.element.isRequired,
+  iconKey: PropTypes.string,
 };
 
 export default SingleToolDisplay;

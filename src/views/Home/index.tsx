@@ -19,20 +19,20 @@ const getRandomWithMax = (max: number) : number => Math.floor(Math.random() * Ma
 
 const Introduction: React.FC = () => {
   const commands = [
-    { command: 'yarn create react-app', icon: <ReactIcon /> },
-    { command: 'yarn', icon: <Yarn /> },
-    { command: 'git commit', icon: <Git /> },
-    { command: 'db.orders.find({...})', icon: <MongoDB /> },
-    { command: 'git push', icon: <Git /> },
-    { command: 'ng new', icon: <Angular /> },
-    { command: 'kubectl logs', icon: <Kubernetes /> },
-    { command: 'docker build', icon: <Docker /> },
-    { command: 'jest', icon: <Jest /> },
-    { command: 'db.orders.aggregate([...])', icon: <MongoDB /> },
-    { command: 'kubectl describe pod', icon: <Kubernetes /> },
-    { command: 'dotnet run', icon: <Dotnet /> },
-    { command: 'npm install', icon: <Npm /> },
-    { command: 'docker push', icon: <Docker /> },
+    { command: 'yarn create react-app', icon: <ReactIcon />, iconKey: 'react' },
+    { command: 'yarn', icon: <Yarn />, iconKey: 'yarn' },
+    { command: 'git commit', icon: <Git />, iconKey: 'git' },
+    { command: 'db.orders.find({...})', icon: <MongoDB />, iconKey: 'mongodb' },
+    { command: 'git push', icon: <Git />, iconKey: 'git' },
+    { command: 'ng new', icon: <Angular />, iconKey: 'angular' },
+    { command: 'kubectl logs', icon: <Kubernetes />, iconKey: 'kubernetes' },
+    { command: 'docker build', icon: <Docker />, iconKey: 'docker' },
+    { command: 'jest', icon: <Jest />, iconKey: 'jest' },
+    { command: 'db.orders.aggregate([...])', icon: <MongoDB />, iconKey: 'mongodb' },
+    { command: 'kubectl describe pod', icon: <Kubernetes />, iconKey: 'kubernetes' },
+    { command: 'dotnet run', icon: <Dotnet />, iconKey: 'dotnet' },
+    { command: 'npm install', icon: <Npm />, iconKey: 'npm' },
+    { command: 'docker push', icon: <Docker />, iconKey: 'docker' },
   ];
 
   const [currentCommand, setCurrentCommand] = useState(getRandomWithMax(commands.length));
@@ -54,12 +54,13 @@ const Introduction: React.FC = () => {
   return (
     <section className="home">
       <h1 className="hello">Hello,</h1>
-      <h1 className="iam">I'm Julio.</h1>
+      <h1 className="iam">I'm julio.</h1>
       <h2>Software Developer</h2>
       <Typewriter text={commands[currentCommand].command} />
       <div className="tool-display-container">
         <SingleToolDisplay 
           icon={commands[currentCommand].icon}
+          iconKey={commands[currentCommand].iconKey}
           />
       </div>
     </section>
