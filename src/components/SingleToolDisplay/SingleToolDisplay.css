@@ -1,0 +1,35 @@
+.single-tool-display {
+  margin-top: 17px;
+  fill: #fff;
+  height: 70px;
+  width: 70px;
+}
+
+.single-tool-display .tool {
+  position: absolute;
+  height: 70px;
+  width: 70px;
+}
+
+.view-enter-done .tool.enter {
+  opacity: 0;
+  transform: translate(200px, 0);
+}
+
+.view-enter-done .tool.enter-active {
+  opacity: 1;
+  transform: translate(0, 0);
+  transition: all 2s;
+}
+
+.view-enter-done .tool.exit {
+  opacity: 1;
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.view-enter-done .tool.exit-active {
+  opacity: 0;
+  transform: translate(-200px, 0);
+  transition: all 2s;
+}

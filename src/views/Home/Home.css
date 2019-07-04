@@ -8,7 +8,7 @@
   color: #FFF;
   max-width: 525px;
   font-weight: 300;
-  font-size: 140px;
+  font-size: 125px;
   text-transform: capitalize;
   margin: 0;
 }
@@ -19,7 +19,7 @@
 }
 
 .home h2 {
-  color: #2F2E29;
+  color: #000;
   max-width: 525px;
   font-weight: bold;
   font-size: 42px;
@@ -28,29 +28,43 @@
   transform: translate(0, -15px);
 }
 
-.view-enter, .view-appear h1.hello {
+.home .tool-display-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.view-enter .tool-display-container, .view-appear .tool-display-container { 
+  display: none;
+}
+
+.view-enter .tool-display-container, .view-appear .tool-display-container { 
+  display: flex;
+}
+
+.view-enter h1.hello, .view-appear h1.hello {
   transform: translate(0, -45px);
 }
 
-.view-enter-active, .view-appear-active h1.hello {
+.view-enter-active h1.hello, .view-appear-active h1.hello {
   transform: translate(0, 0);
   transition: transform 2s;
 }
 
-.view-enter, .view-appear h1.iam {
+.view-enter h1.iam, .view-appear h1.iam {
   transform: translate(-45px, 0);
 }
 
-.view-enter-active, .view-appear-active h1.iam {
+.view-enter-active h1.iam, .view-appear-active h1.iam {
   transform: translate(0, 0);
   transition: transform 2s;
 }
 
-.view-enter, .view-appear .typewriter {
+.view-enter .typewriter, .view-appear .typewriter {
   transform: translate(0, 45px);
 }
 
-.view-enter-active, .view-appear-active .typewriter {
+.view-enter-active .typewriter, .view-appear-active .typewriter {
   transform: translate(0, 0);
   transition: transform 2s;
 }

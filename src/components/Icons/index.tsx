@@ -1,4 +1,15 @@
 export {default as Github} from './Github';
 export {default as LinkedIn} from './LinkedIn';
 export {default as Menu} from './Menu';
-
+export {default as Angular} from './Angular';
+export {default as React} from './React';
+export {default as TypeScript} from './TypeScript';
+export {default as JavaScript} from './JavaScript';
+export {default as Dotnet} from './Dotnet';
+export {default as MongoDB} from './MongoDB';
+export {default as Kubernetes} from './Kubernetes';
+export {default as Npm} from './Npm';
+export {default as Jest} from './Jest';
+export {default as Yarn} from './Yarn';
+export {default as Git} from './Git';
+export {default as Docker} from './Docker';
