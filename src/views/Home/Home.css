@@ -30,16 +30,13 @@
 
 .home .tool-display-container {
   display: flex;
+  visibility: hidden;
   justify-content: center;
   width: 100%;
-}
+} 
 
-.view-enter .tool-display-container, .view-appear .tool-display-container { 
-  display: none;
-}
-
-.view-enter .tool-display-container, .view-appear .tool-display-container { 
-  display: flex;
+.view-enter-done .tool-display-container, .view-appear-done .tool-display-container { 
+  visibility: visible;
 }
 
 .view-enter h1.hello, .view-appear h1.hello {
@@ -71,8 +68,7 @@
 
 @media (min-width: 320px) and (max-width: 823px) {
   .home h1 {
-    font-size: 60px;
-    max-width: 85%;
+    font-size: 50px;
   }
 
   .home h1.iam {

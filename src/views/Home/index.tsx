@@ -15,6 +15,8 @@ import {
 } from '../../components/Icons';
 import SingleToolDisplay from '../../components/SingleToolDisplay';
 
+const getRandomWithMax = (max: number) : number => Math.floor(Math.random() * Math.floor(max));
+
 const Introduction: React.FC = () => {
   const commands = [
     { command: 'yarn create react-app', icon: <ReactIcon /> },
@@ -33,14 +35,14 @@ const Introduction: React.FC = () => {
     { command: 'docker push', icon: <Docker /> },
   ];
 
-  const [currentCommand, setCurrentCommand] = useState(0);
+  const [currentCommand, setCurrentCommand] = useState(getRandomWithMax(commands.length));
 
   useEffect(() => {
     const id = setTimeout(() => {
-      let newCurrentCommand = Math.floor(Math.random() * Math.floor(commands.length));
+      let newCurrentCommand = getRandomWithMax(commands.length);
 
       while(newCurrentCommand === currentCommand || commands[newCurrentCommand].icon === commands[currentCommand].icon) {
-        newCurrentCommand = Math.floor(Math.random() * Math.floor(commands.length));
+        newCurrentCommand = getRandomWithMax(commands.length);
       }
 
       setCurrentCommand(newCurrentCommand);
