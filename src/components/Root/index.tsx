@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Menu from '../Menu';
 import Home from '../../views/Home';
-import About from '../../views/About';
 import Footer from '../Footer';
 
 const Root: React.FC = () => {
@@ -20,7 +19,7 @@ const Root: React.FC = () => {
             <Switch location={location}>
               <Route exact path="/" component={Home} />
               <Route exact path="/home" component={Home} />
-              <Route exact path="/about" component={About} />
+              <Route exact path="/about" component={() => null} />
               <Route exact path="/skills" render={() => null} />
               <Route exact path="/activity" render={() => null} />
               <Redirect to="/" />
