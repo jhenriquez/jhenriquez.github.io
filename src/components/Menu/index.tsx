@@ -25,7 +25,10 @@ const Menu: React.FC<MenuPropTypes> = ({icon, ...props}: MenuPropTypes) => {
     <nav>
       <div className="text-nav">
         {
-          routes.map((route) => <Link key={`route-${route}`} to={`/${route}`} className={getClasses(route, activeItem)}>{route}</Link>)
+          routes.map((route) => (
+            <Link key={`route-${route}`} to={`/${route}`} className={getClasses(route, activeItem)}>
+              {route}
+            </Link>))
         }
       </div>
       {icon}

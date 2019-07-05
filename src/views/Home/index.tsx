@@ -14,10 +14,11 @@ import {
   Docker,
 } from '../../components/Icons';
 import SingleToolDisplay from '../../components/SingleToolDisplay';
+import CodeDisplay from '../../components/CodeDisplay';
 
 const getRandomWithMax = (max: number) : number => Math.floor(Math.random() * Math.floor(max));
 
-const Introduction: React.FC = () => {
+const Home: React.FC = () => {
   const commands = [
     { command: 'yarn create react-app', icon: <ReactIcon />, iconKey: 'react' },
     { command: 'yarn', icon: <Yarn />, iconKey: 'yarn' },
@@ -51,20 +52,73 @@ const Introduction: React.FC = () => {
     return () => clearTimeout(id);
   });
 
+  const cssSnippet = `
+    .home {
+      position: absolute;
+      top: 15%;
+      padding-left: 70px;
+    }
+    
+    .home h1 {
+      color: #FFF;
+      max-width: 525px;
+      font-weight: 300;
+      font-size: 125px;
+      text-transform: capitalize;
+      margin: 0;
+    }
+    
+    .home h1.iam {
+      position: relative;
+      top: -30px;
+    }
+    
+    .home h2 {
+      color: #000;
+      max-width: 525px;
+      font-weight: bold;
+      font-size: 42px;
+      text-transform: uppercase;
+      margin: 0;
+      transform: translate(0, -15px);
+    }
+    
+    .home .tool-display-container {
+      display: flex;
+      visibility: hidden;
+      justify-content: center;
+      width: 100%;
+    }
+    
+    .home-view .code-display.main {
+      position: absolute;
+      width: 100%;
+      top: 15%;
+      left: 600px;
+      opacity: 0.2;
+    }
+  `;
+  
   return (
-    <section className="home">
-      <h1 className="hello">Hello,</h1>
-      <h1 className="iam">I'm julio.</h1>
-      <h2>Software Developer</h2>
-      <Typewriter text={commands[currentCommand].command} />
-      <div className="tool-display-container">
-        <SingleToolDisplay 
-          icon={commands[currentCommand].icon}
-          iconKey={commands[currentCommand].iconKey}
-          />
+    <div className="home-view">
+      <div className="home">
+        <h1 className="hello">Hello,</h1>
+        <h1 className="iam">I'm julio.</h1>
+        <Typewriter text={commands[currentCommand].command} />
+        <div className="tool-display-container">
+          <SingleToolDisplay 
+            icon={commands[currentCommand].icon}
+            iconKey={commands[currentCommand].iconKey}
+            />
+        </div>
       </div>
-    </section>
+      <CodeDisplay
+          className="main"
+          lang="css"
+          snippet={cssSnippet}
+          />
+    </div>
   );
 }
 
-export default Introduction;
+export default Home;
