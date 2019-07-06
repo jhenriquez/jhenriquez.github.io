@@ -100,4 +100,8 @@
     font-size: 25px;
     transform: translate(0, -5px);
   }
+
+  .home-view .code-display.main {
+    display: none;
+  }
 }
