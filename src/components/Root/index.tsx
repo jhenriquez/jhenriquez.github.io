@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import OverlayMenu from '../OverlayMenu';
 import Menu from '../Menu';
 import Home from '../../views/Home';
 import Footer from '../Footer';
 
 const Root: React.FC = () => {
+  const [showOverlayedMenu, setShowOverlayedMenu] = useState(false);
   return (
     <BrowserRouter>
-      <Route path="/:activeItem?" component={Menu} />
+      { 
+        showOverlayedMenu &&
+        <Route path="/:activeItem?" render={(props) => <OverlayMenu {...props} onCloseOverlay={() => setShowOverlayedMenu(false)} />} />
+      }
+      <Route path="/:activeItem?" render={(props) => (
+        <Menu
+          {...props} 
+          onToggleOverlay={setShowOverlayedMenu}
+          showingOverlayMenu={showOverlayedMenu}
+          />
+        )} />
       <Route render={({location}) => (
         <TransitionGroup enter={true} exit={false} appear={true}>
           <CSSTransition

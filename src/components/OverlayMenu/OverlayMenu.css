@@ -1,0 +1,49 @@
+nav.overlay-menu {
+  position: absolute;
+  display:none;
+  background-color: #FFF;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+@media (min-width: 0px) and (max-width: 767px) { 
+	nav.overlay-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .overlay-menu-item {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: #000;
+    font-size: 35px;
+    padding-bottom: 17px;
+    margin-bottom: 17px;
+    text-transform: lowercase;
+    border-bottom: 1px solid #000;
+    text-align: center;
+    text-decoration: none;
+    min-width: 160px;
+  }
+
+  .overlay-menu-item.active::before {
+    position: absolute;
+    top: 21%;
+    left: 0;
+    content: '';
+    border-left: solid 10px #000;
+    border-top: solid 10px transparent;
+    border-right: solid 10px transparent;
+    border-bottom: solid 10px transparent;
+    width: 0;
+    height: 0;
+  }
+
+  .overlay-menu-item:last-of-type {
+    border-bottom: none;
+  }
+}

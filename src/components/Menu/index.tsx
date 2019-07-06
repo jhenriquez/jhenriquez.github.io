@@ -1,48 +1,66 @@
 import './Menu.css';
-import React, { ReactElement } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
-import { Menu as MenuIcon } from '../Icons';
+import {NAVIGATION_ROUTES} from '../constants';
 
 interface MenuPropTypes {
   match: any;
-  icon?: ReactElement;
+  onToggleOverlay?: (value:boolean) => void;
+  showingOverlayMenu: boolean;
 };
 
 const getClasses = (item: string, activeItem: string) => {
   return classnames({
-    'nav-item': true,
+    'text-nav-item': true,
     'active': item === activeItem,
   });
 };
 
-const Menu: React.FC<MenuPropTypes> = ({icon, ...props}: MenuPropTypes) => {
-  const activeItem = props.match.params.activeItem || 'home';
-  const routes = ['home', 'about', 'skills', 'activity'];
+const Menu: React.FC<MenuPropTypes> = (props: MenuPropTypes) => {
+  const {onToggleOverlay, match, showingOverlayMenu} = props;
+  const activeItem = match.params.activeItem || 'home';
+
+  const iconNavClasses = {
+    'icon-nav': true,
+    'pushed': showingOverlayMenu,
+  };
 
   return (
-    <nav>
-      <div className="text-nav">
+    <nav className="main-menu">
+      <div
+        key="text-nav"
+        className="text-nav"
+        >
         {
-          routes.map((route) => (
+          NAVIGATION_ROUTES.map((route) => (
             <Link key={`route-${route}`} to={`/${route}`} className={getClasses(route, activeItem)}>
               {route}
             </Link>))
         }
       </div>
-      {icon}
+      <div
+        key="icon-nav"
+        className={classnames(iconNavClasses)}
+        onClick={() => {
+          if (onToggleOverlay) {
+            onToggleOverlay(!showingOverlayMenu);
+          }
+        }}
+        >
+        <span className="bar"></span>
+        <span className="bar"></span>
+        <span className="bar"></span>
+      </div>
     </nav>
   );
-}
+};
 
 Menu.propTypes = {
   match: PropTypes.object.isRequired,
-  icon: PropTypes.element,
+  onToggleOverlay: PropTypes.func,
+  showingOverlayMenu: PropTypes.bool.isRequired,
 };
-
-Menu.defaultProps = {
-  icon: <MenuIcon />,
-}
 
 export default Menu;
