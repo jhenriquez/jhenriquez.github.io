@@ -1,18 +1,18 @@
-import './SingleToolDisplay.css';
+import './ToolDisplay.css';
 import React, { ReactElement } from 'react';
 import PropTypes from 'prop-types';
 import {TransitionGroup, CSSTransition} from 'react-transition-group';
 
-export interface SingleToolDisplayPropTypes {
+export interface ToolDisplayPropTypes {
   icon: ReactElement;
   iconKey?: string;
 }
 
-const SingleToolDisplay: React.FC<SingleToolDisplayPropTypes> = (props) => {
+const ToolDisplay: React.FC<ToolDisplayPropTypes> = (props) => {
   const {icon, iconKey} = props;
 
   return (
-    <div className="single-tool-display">
+    <div className="tool-display">
       <TransitionGroup>
         <CSSTransition
           key={iconKey}
@@ -25,9 +25,9 @@ const SingleToolDisplay: React.FC<SingleToolDisplayPropTypes> = (props) => {
   );
 }
 
-SingleToolDisplay.propTypes = {
+ToolDisplay.propTypes = {
   icon: PropTypes.element.isRequired,
   iconKey: PropTypes.string,
 };
 
-export default SingleToolDisplay;
+export default ToolDisplay;

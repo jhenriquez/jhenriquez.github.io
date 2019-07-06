@@ -1,11 +1,11 @@
-.single-tool-display {
+.tool-display {
   margin-top: 17px;
   fill: #fff;
   height: 70px;
   width: 70px;
 }
 
-.single-tool-display .tool {
+.tool-display .tool {
   position: absolute;
   height: 70px;
   width: 70px;

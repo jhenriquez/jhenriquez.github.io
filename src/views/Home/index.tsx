@@ -1,7 +1,7 @@
 import './Home.css';
 import React, { useState, useEffect } from 'react';
 import Typewriter from '../../components/Typewriter'
-import SingleToolDisplay from '../../components/SingleToolDisplay';
+import SingleToolDisplay from '../../components/ToolDisplay';
 import CodeDisplay from '../../components/CodeDisplay';
 import commands from './commandMappings';
 import GithubService from '../../services/Github';
