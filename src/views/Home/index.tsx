@@ -1,48 +1,20 @@
 import './Home.css';
 import React, { useState, useEffect } from 'react';
-import Typewriter from '../../components/Typewriter';
-import {
-  Angular,
-  React as ReactIcon,
-  Dotnet,
-  MongoDB,
-  Yarn,
-  Git,
-  Kubernetes,
-  Jest,
-  Npm,
-  Docker,
-} from '../../components/Icons';
+import Typewriter from '../../components/Typewriter'
 import SingleToolDisplay from '../../components/SingleToolDisplay';
 import CodeDisplay from '../../components/CodeDisplay';
+import commands from './commandMappings';
 
 const getRandomWithMax = (max: number) : number => Math.floor(Math.random() * Math.floor(max));
 
 const Home: React.FC = () => {
-  const commands = [
-    { command: 'yarn create react-app', icon: <ReactIcon />, iconKey: 'react' },
-    { command: 'yarn', icon: <Yarn />, iconKey: 'yarn' },
-    { command: 'git commit', icon: <Git />, iconKey: 'git' },
-    { command: 'db.orders.find({...})', icon: <MongoDB />, iconKey: 'mongodb' },
-    { command: 'git push', icon: <Git />, iconKey: 'git' },
-    { command: 'ng new', icon: <Angular />, iconKey: 'angular' },
-    { command: 'kubectl logs', icon: <Kubernetes />, iconKey: 'kubernetes' },
-    { command: 'docker build', icon: <Docker />, iconKey: 'docker' },
-    { command: 'jest', icon: <Jest />, iconKey: 'jest' },
-    { command: 'db.orders.aggregate([...])', icon: <MongoDB />, iconKey: 'mongodb' },
-    { command: 'kubectl describe pod', icon: <Kubernetes />, iconKey: 'kubernetes' },
-    { command: 'dotnet run', icon: <Dotnet />, iconKey: 'dotnet' },
-    { command: 'npm install', icon: <Npm />, iconKey: 'npm' },
-    { command: 'docker push', icon: <Docker />, iconKey: 'docker' },
-  ];
-
   const [currentCommand, setCurrentCommand] = useState(getRandomWithMax(commands.length));
 
   useEffect(() => {
     const id = setTimeout(() => {
       let newCurrentCommand = getRandomWithMax(commands.length);
 
-      while(newCurrentCommand === currentCommand || commands[newCurrentCommand].icon === commands[currentCommand].icon) {
+      while(newCurrentCommand === currentCommand || commands[newCurrentCommand].iconKey === commands[currentCommand].iconKey) {
         newCurrentCommand = getRandomWithMax(commands.length);
       }
 
@@ -52,51 +24,77 @@ const Home: React.FC = () => {
     return () => clearTimeout(id);
   });
 
-  const cssSnippet = `
-    .home {
-      position: absolute;
-      top: 15%;
-      padding-left: 70px;
-    }
-    
-    .home h1 {
-      color: #FFF;
-      max-width: 525px;
-      font-weight: 300;
-      font-size: 125px;
-      text-transform: capitalize;
-      margin: 0;
-    }
-    
-    .home h1.iam {
-      position: relative;
-      top: -30px;
-    }
-    
-    .home h2 {
-      color: #000;
-      max-width: 525px;
-      font-weight: bold;
-      font-size: 42px;
-      text-transform: uppercase;
-      margin: 0;
-      transform: translate(0, -15px);
-    }
-    
-    .home .tool-display-container {
-      display: flex;
-      visibility: hidden;
-      justify-content: center;
-      width: 100%;
-    }
-    
-    .home-view .code-display.main {
-      position: absolute;
-      width: 100%;
-      top: 15%;
-      left: 600px;
-      opacity: 0.2;
-    }
+  const codeSnippet = `
+  import './Home.css';
+  import React, { useState, useEffect } from 'react';
+  import Typewriter from '../../components/Typewriter';
+  import {
+    Angular,
+    React as ReactIcon,
+    Dotnet,
+    MongoDB,
+    Yarn,
+    Git,
+    Kubernetes,
+    Jest,
+    Npm,
+    Docker,
+  } from '../../components/Icons';
+  import SingleToolDisplay from '../../components/SingleToolDisplay';
+  
+  const getRandomWithMax = (max: number) : number => Math.floor(Math.random() * Math.floor(max));
+  
+  const Introduction: React.FC = () => {
+    const commands = [
+      { command: 'yarn create react-app', icon: <ReactIcon />, iconKey: 'react' },
+      { command: 'yarn', icon: <Yarn />, iconKey: 'yarn' },
+      { command: 'git commit', icon: <Git />, iconKey: 'git' },
+      { command: 'db.orders.find({...})', icon: <MongoDB />, iconKey: 'mongodb' },
+      { command: 'git push', icon: <Git />, iconKey: 'git' },
+      { command: 'ng new', icon: <Angular />, iconKey: 'angular' },
+      { command: 'kubectl logs', icon: <Kubernetes />, iconKey: 'kubernetes' },
+      { command: 'docker build', icon: <Docker />, iconKey: 'docker' },
+      { command: 'jest', icon: <Jest />, iconKey: 'jest' },
+      { command: 'db.orders.aggregate([...])', icon: <MongoDB />, iconKey: 'mongodb' },
+      { command: 'kubectl describe pod', icon: <Kubernetes />, iconKey: 'kubernetes' },
+      { command: 'dotnet run', icon: <Dotnet />, iconKey: 'dotnet' },
+      { command: 'npm install', icon: <Npm />, iconKey: 'npm' },
+      { command: 'docker push', icon: <Docker />, iconKey: 'docker' },
+    ];
+  
+    const [currentCommand, setCurrentCommand] = useState(getRandomWithMax(commands.length));
+  
+    useEffect(() => {
+      const id = setTimeout(() => {
+        let newCurrentCommand = getRandomWithMax(commands.length);
+  
+        while(newCurrentCommand === currentCommand || commands[newCurrentCommand].icon === commands[currentCommand].icon) {
+          newCurrentCommand = getRandomWithMax(commands.length);
+        }
+  
+        setCurrentCommand(newCurrentCommand);
+      }, 5000);
+  
+      return () => clearTimeout(id);
+    });
+  
+    return (
+      <section className="home">
+        <h1 className="hello">Hello,</h1>
+        <h1 className="iam">I'm julio.</h1>
+        <h2>Software Developer</h2>
+        <Typewriter text={commands[currentCommand].command} />
+        <div className="tool-display-container">
+          <SingleToolDisplay 
+            icon={commands[currentCommand].icon}
+            iconKey={commands[currentCommand].iconKey}
+            />
+        </div>
+      </section>
+    );
+  }
+  
+  export default Introduction;
   `;
   
   return (
@@ -114,8 +112,8 @@ const Home: React.FC = () => {
       </div>
       <CodeDisplay
           className="main"
-          lang="css"
-          snippet={cssSnippet}
+          lang="typescript"
+          snippet={codeSnippet}
           />
     </div>
   );
