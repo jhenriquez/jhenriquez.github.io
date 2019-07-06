@@ -1,20 +1,11 @@
 import './OverlayMenu.css';
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import { Link } from 'react-router-dom';
-import { NAVIGATION_ROUTES } from '../constants';
+import MenuItemList from '../MenuItemList';
 
 interface OverlayMenuPropTypes {
   match: any;
-  onCloseOverlay?: () => void;
-};
-
-const getClasses = (item: string, activeItem: string) => {
-  return classnames({
-    'overlay-menu-item': true,
-    'active': item === activeItem,
-  });
+  onCloseOverlay: () => void;
 };
 
 const OverlayMenu: React.FC<OverlayMenuPropTypes> = (props: OverlayMenuPropTypes) => {
@@ -23,28 +14,18 @@ const OverlayMenu: React.FC<OverlayMenuPropTypes> = (props: OverlayMenuPropTypes
 
   return (
     <nav className="overlay-menu">
-      {
-        NAVIGATION_ROUTES.map((route) => (
-          <Link
-            key={`route-${route}`}
-            to={`/${route}`}
-            className={getClasses(route, activeItem)}
-            onClick={() => {
-              if (onCloseOverlay) {
-                onCloseOverlay();
-              }
-            }}
-            >
-            {route}
-          </Link>))
-      }
+      <MenuItemList
+        itemClassName="overlay-menu-item"
+        activeItem={activeItem}
+        onItemClick={onCloseOverlay}
+        />
     </nav>
   );
 };
 
 OverlayMenu.propTypes = {
   match: PropTypes.object.isRequired,
-  onCloseOverlay: PropTypes.func,
+  onCloseOverlay: PropTypes.func.isRequired,
 };
 
 export default OverlayMenu;

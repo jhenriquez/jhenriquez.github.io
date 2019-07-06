@@ -1,21 +1,13 @@
 import './Menu.css';
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { Link } from 'react-router-dom';
-import {NAVIGATION_ROUTES} from '../constants';
+import MenuItemList from '../MenuItemList';
 
 interface MenuPropTypes {
   match: any;
   onToggleOverlay?: (value:boolean) => void;
   showingOverlayMenu: boolean;
-};
-
-const getClasses = (item: string, activeItem: string) => {
-  return classnames({
-    'text-nav-item': true,
-    'active': item === activeItem,
-  });
 };
 
 const Menu: React.FC<MenuPropTypes> = (props: MenuPropTypes) => {
@@ -33,12 +25,10 @@ const Menu: React.FC<MenuPropTypes> = (props: MenuPropTypes) => {
         key="text-nav"
         className="text-nav"
         >
-        {
-          NAVIGATION_ROUTES.map((route) => (
-            <Link key={`route-${route}`} to={`/${route}`} className={getClasses(route, activeItem)}>
-              {route}
-            </Link>))
-        }
+        <MenuItemList
+          itemClassName="text-nav-item"
+          activeItem={activeItem}
+          />
       </div>
       <div
         key="icon-nav"
