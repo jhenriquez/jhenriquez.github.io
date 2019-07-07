@@ -1,7 +1,7 @@
 import './Home.css';
 import React, { useState, useEffect } from 'react';
 import Typewriter from '../../components/Typewriter'
-import SingleToolDisplay from '../../components/ToolDisplay';
+import ToolDisplay from '../../components/ToolDisplay';
 import CodeDisplay from '../../components/CodeDisplay';
 import commands from './commandMappings';
 import GithubService from '../../services/Github';
@@ -16,7 +16,7 @@ const Home: React.FC = () => {
   useEffect(() => {
     const id = setTimeout(() => {
       let newCurrentCommand = getRandomWithMax(commands.length);
-      while(newCurrentCommand === currentCommand || commands[newCurrentCommand].iconKey === commands[currentCommand].iconKey) {
+      while(commands[newCurrentCommand].iconKey === commands[currentCommand].iconKey) {
         newCurrentCommand = getRandomWithMax(commands.length);
       }
       setCurrentCommand(newCurrentCommand);
@@ -25,13 +25,20 @@ const Home: React.FC = () => {
   });
 
   useEffect(() => {
-    const asyncEffect = async () => {
+    const fetchComponentCodeFromGithub = async () => {
       setLoading(true);
-      const code = await GithubService.getViewSourceContent('home');
-      setCodeSnippet(code);
+      try {
+        const code = await GithubService.getViewSourceContent('home');
+        setCodeSnippet(code);
+      } catch (x) {
+        /**
+         * TODO: Set an alternate state for the component.
+         */  
+      }
+
       setLoading(false);
     }
-    asyncEffect();
+    fetchComponentCodeFromGithub();
   }, []);
   
   return (
@@ -41,14 +48,14 @@ const Home: React.FC = () => {
         <h1 className="iam">I'm julio.</h1>
         <Typewriter text={commands[currentCommand].command} />
         <div className="tool-display-container">
-          <SingleToolDisplay 
+          <ToolDisplay
             icon={commands[currentCommand].icon}
             iconKey={commands[currentCommand].iconKey}
             />
         </div>
       </div>
       {
-        !loading &&
+        !loading && codeSnippet &&
         <CodeDisplay
           className="main"
           lang="typescript"
